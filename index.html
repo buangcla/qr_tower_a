@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Tambuli Guest Services</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f5f7fa;
+    color:#222;
+    text-align:center;
+}
+.header{
+    background:#0d4d8b;
+    color:white;
+    padding:25px 15px;
+}
+.header h1{
+    margin:0;
+    font-size:28px;
+}
+.room{
+    margin-top:8px;
+    font-size:18px;
+}
+.container{
+    padding:20px;
+}
+.btn{
+    display:block;
+    width:90%;
+    max-width:420px;
+    margin:12px auto;
+    padding:18px;
+    font-size:20px;
+    border:none;
+    border-radius:12px;
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+}
+.call{ background:#28a745; }
+.housekeeping{ background:#17a2b8; }
+.roomservice{ background:#ff9800; }
+.checkout{ background:#6f42c1; }
+.whatsapp{ background:#25d366; }
+
+.footer{
+    margin-top:25px;
+    font-size:14px;
+    color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>Tambuli Guest Services</h1>
+    <div class="room" id="roomNumber">Welcome Guest</div>
+</div>
+
+<div class="container">
+
+<a class="btn call" href="tel:+639190665006">
+📞 Call Front Desk
+</a>
+
+<a class="btn call" href="tel:+639562040707">
+🧹 Housekeeping Request
+</a>
+
+<a class="btn roomservice" href="tel:+639498010409">
+🍽 Room Service
+</a>
+
+<div class="footer">
+Open 24 Hours • Tambuli Seaside Resort & Spa
+</div>
+
+</div>
+
+<script>
+// Get room number from URL
+// Example: yourdomain.com/?room=504
+const params = new URLSearchParams(window.location.search);
+const room = params.get("room");
+
+if(room){
+    document.getElementById("roomNumber").innerText = "Welcome Room " + room;
+}
+</script>
+
+</body>
+</html>
