@@ -195,7 +195,38 @@ body{
 </div>
 
 <script>
+function showMaintenanceMenu(){
 
+    const menu = document.getElementById("maintenanceMenu");
+
+    if(menu.style.display === "none"){
+        menu.style.display = "block";
+        menu.scrollIntoView({
+            behavior:"smooth"
+        });
+    }else{
+        menu.style.display = "none";
+    }
+
+}
+
+function maintenanceRequest(issue){
+
+    const message =
+`Hello.
+
+Room ${room} reports a maintenance issue.
+
+Issue:
+${issue}
+
+Thank you.`;
+
+    window.location.href =
+        "https://wa.me/" + whatsapp +
+        "?text=" + encodeURIComponent(message);
+
+}
 const params = new URLSearchParams(window.location.search);
 const room = params.get("room") || "Guest";
 
@@ -215,6 +246,7 @@ Room ${room} would like to report a maintenance issue.
 Please send someone.
 
 Thank you.`);
+    
 document.getElementById("chatBtn").href =
 wa(`Hello.
 
