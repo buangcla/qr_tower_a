@@ -232,12 +232,18 @@ const room = params.get("room") || "Guest";
 
 document.getElementById("roomNumber").innerText = "Room " + room;
 
-const whatsapp = "639171234567";
+const whatsappNumbers = {
+    frontdesk: "639190665006",
+    housekeeping: "639629022019",
+    engineering: "639223169696",
+    roomservice: "639498010409"
+};
 
-function wa(message){
-    return "https://wa.me/" + whatsapp +
+function wa(number, message){
+    return "https://wa.me/" + number +
     "?text=" + encodeURIComponent(message);
 }
+
 document.getElementById("engineeringBtn").href =
 wa(`Hello.
 
@@ -248,40 +254,44 @@ Please send someone.
 Thank you.`);
     
 document.getElementById("chatBtn").href =
-wa(`Hello.
+wa(whatsappNumbers.frontdesk,
+`Hello.
 
 This is Room ${room}.
 
 I need assistance.`);
 
 document.getElementById("housekeepingBtn").href =
-wa(`Hello.
+wa(whatsappNumbers.housekeeping,
+`Hello.
 
 Room ${room} requests housekeeping.
 
 Thank you.`);
 
 document.getElementById("checkoutBtn").href =
-wa(`Hello.
+wa(whatsappNumbers.frontdesk,
+`Hello.
 
 Room ${room} would like to request a late checkout.
 
 Thank you.`);
 
 document.getElementById("transferBtn").href =
-wa(`Hello.
+wa(whatsappNumbers.frontdesk,
+`Hello.
 
 Room ${room} would like to arrange an airport transfer.
 
 Thank you.`);
 
 document.getElementById("spaBtn").href =
-wa(`Hello.
+wa(whatsappNumbers.frontdesk,
+`Hello.
 
 Room ${room} would like to reserve a spa treatment.
 
 Thank you.`);
-
 </script>
 
 </body>
